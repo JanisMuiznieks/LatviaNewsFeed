@@ -1,12 +1,13 @@
 //
 //  WebViewController.swift
-//  LatviaNewsFeed
+//  AppleNewsFeed
 //
 //  Created by janis.muiznieks on 12/02/2021.
 //
 
 import UIKit
 import WebKit
+
 class WebViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet var webView: WKWebView!
@@ -22,28 +23,17 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "WEBKIT News"
+        self.title = "WEBKIT"
         
-        guard let url = URL(string: urlString) else {return}
+        guard let url = URL(string: urlString) else { return }
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Start navigation")
+        print("Start nav")
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("navigation stopped")
+        print("nav stopped")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
